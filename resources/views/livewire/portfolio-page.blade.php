@@ -1,4 +1,24 @@
 <div>
+    <div class="boot-screen" id="boot-screen" role="dialog" aria-modal="true" aria-label="Portfolio start screen">
+        <button class="boot-run-button" id="boot-run" type="button" aria-label="Run portfolio">
+            <svg class="boot-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13L19 12 8 5.5Z"></path></svg>
+            <span>RUN</span>
+        </button>
+        <div class="boot-terminal-screen" id="boot-terminal" aria-label="Simulated portfolio startup terminal" hidden>
+            <div class="boot-terminal-bar">
+                <span><i class="boot-terminal-indicator"></i> ibnu@portfolio:~</span>
+                <span class="boot-terminal-state" id="boot-terminal-state">SIMULATED STARTUP</span>
+            </div>
+            <div class="boot-terminal-body">
+                <p class="boot-terminal-title">PORTFOLIO <span>BOOT SEQUENCE</span></p>
+                <div class="boot-output" id="boot-output" role="log" aria-live="polite" aria-relevant="additions"></div>
+                <div class="boot-progress" aria-hidden="true"><span id="boot-progress"></span></div>
+                <p class="boot-storage-warning" id="boot-storage-warning" role="status" hidden>Your browser could not save this state, so this screen may appear again next visit.</p>
+                <p class="boot-terminal-footer">SIMULATED STARTUP / PHP · LARAVEL · REACT</p>
+            </div>
+        </div>
+    </div>
+
     @include('components.site-header')
 
     <main>

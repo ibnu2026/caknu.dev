@@ -18,6 +18,9 @@ class PortfolioTest extends TestCase
 
         $this->get('/')
             ->assertOk()
+            ->assertSee('id="boot-screen"', false)
+            ->assertSee('id="boot-run"', false)
+            ->assertSee('SIMULATED STARTUP')
             ->assertSee('Building Ideas.')
             ->assertSee('<div id="top" aria-hidden="true"></div>', false)
             ->assertSee('href="#top"', false)

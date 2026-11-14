@@ -5,7 +5,95 @@ const themeButton = document.querySelector('.theme-toggle');
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('.main-nav');
 
-const storedTheme = window.localStorage.getItem('ibnu-theme');
+const bootScreen = document.querySelector('#boot-screen');
+const bootRunButton = document.querySelector('#boot-run');
+const bootTerminal = document.querySelector('#boot-terminal');
+const bootOutput = document.querySelector('#boot-output');
+const bootProgress = document.querySelector('#boot-progress');
+const bootTerminalState = document.querySelector('#boot-terminal-state');
+const bootStorageWarning = document.querySelector('#boot-storage-warning');
+const bootStorageKey = 'ibnu-portfolio-run';
+
+if (bootScreen && bootRunButton && bootTerminal && bootOutput && bootProgress && bootTerminalState) {
+    let hasRun = false;
+
+    try {
+        hasRun = window.localStorage.getItem(bootStorageKey) === 'true';
+    } catch (error) {
+        console.error('Could not read the portfolio startup state from browser storage.', error);
+        bootStorageWarning?.removeAttribute('hidden');
+    }
+
+    if (hasRun) {
+        bootScreen.remove();
+    } else {
+        const startupLines = [
+            '$ python manage.py runserver',
+            '✓ Python environment checked',
+            '$ php artisan serve',
+            '✓ Laravel portfolio loaded',
+            '$ npm run build',
+            '✓ React-inspired interface ready',
+        ];
+        const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 360;
+
+        document.body.classList.add('is-booting');
+        bootRunButton.focus();
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Tab' && bootScreen.isConnected) {
+                event.preventDefault();
+                (bootTerminal.hidden ? bootRunButton : bootTerminal).focus();
+            }
+        });
+
+        bootRunButton.addEventListener('click', () => {
+            bootRunButton.hidden = true;
+            bootTerminal.hidden = false;
+            bootTerminal.setAttribute('tabindex', '-1');
+            bootTerminal.focus();
+            bootTerminalState.textContent = 'RUNNING';
+            bootOutput.replaceChildren();
+
+            try {
+                window.localStorage.setItem(bootStorageKey, 'true');
+            } catch (error) {
+                console.error('Could not save the portfolio startup state to browser storage.', error);
+                bootStorageWarning?.removeAttribute('hidden');
+            }
+
+            startupLines.forEach((text, index) => {
+                window.setTimeout(() => {
+                    const line = document.createElement('p');
+                    line.className = 'boot-output-line';
+                    line.textContent = text;
+                    bootOutput.append(line);
+                    bootProgress.style.width = `${Math.round(((index + 1) / startupLines.length) * 100)}%`;
+
+                    if (index === startupLines.length - 1) {
+                        line.classList.add('is-success');
+                        bootTerminalState.textContent = 'READY';
+                        window.setTimeout(() => {
+                            bootScreen.classList.add('is-closing');
+                            window.setTimeout(() => {
+                                bootScreen.remove();
+                                document.body.classList.remove('is-booting');
+                            }, delay ? 450 : 0);
+                        }, delay ? 500 : 0);
+                    }
+                }, delay * (index + 1));
+            });
+        });
+    }
+}
+
+let storedTheme = null;
+try {
+    storedTheme = window.localStorage.getItem('ibnu-theme');
+} catch (error) {
+    console.error('Could not read the theme preference from browser storage.', error);
+}
+
 if (storedTheme === 'light' || storedTheme === 'dark') {
     root.dataset.theme = storedTheme;
 }
