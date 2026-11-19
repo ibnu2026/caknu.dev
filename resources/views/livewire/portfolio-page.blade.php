@@ -54,7 +54,7 @@
             <div class="hero-bottom">
                 <span>SCROLL TO EXPLORE</span>
                 <span class="scroll-line"></span>
-                <span>01 / 06</span>
+                <span>01 / 07</span>
             </div>
         </section>
 
@@ -241,10 +241,34 @@
             </div>
         </section>
 
+        <section class="achievements-section section-shell" id="achievements">
+            <div class="section-heading">
+                <div>
+                    <div class="section-label"><span>06</span> ACHIEVEMENTS & CERTIFICATES</div>
+                    <h2>Milestones<br>& recognition<span class="blue-dot">.</span></h2>
+                </div>
+                <p>A growing collection of certificates and milestones from my learning journey.</p>
+            </div>
+            <div class="achievement-empty">
+                <div class="achievement-empty-art" aria-hidden="true">
+                    <div class="achievement-document">
+                        <span></span><span></span><span></span>
+                        <i>✳</i>
+                    </div>
+                    <span class="achievement-art-label">RECOGNITION / ARCHIVE</span>
+                </div>
+                <div class="achievement-empty-copy">
+                    <div class="detail-label">COLLECTION IN PROGRESS</div>
+                    <h3>More milestones are on the way.</h3>
+                    <p>Certificates and achievements will be added here as they are ready to share.</p>
+                </div>
+            </div>
+        </section>
+
         <section class="journal-section section-shell" id="journal">
             <div class="section-heading">
                 <div>
-                    <div class="section-label"><span>06</span> JOURNAL / NOTES</div>
+                    <div class="section-label"><span>07</span> JOURNAL / NOTES</div>
                     <h2>Thoughts, notes<br>& discoveries<span class="blue-dot">.</span></h2>
                 </div>
                 <p>A space for what I’m learning — from code and research to books, films, and the little things in between.</p>
@@ -338,7 +362,7 @@
 
     <footer class="site-footer section-shell">
         <div class="footer-top"><a class="wordmark" href="#home">IBNU<span>.</span></a><span>Designed & built with curiosity.</span><a class="back-top" href="#top">BACK TO TOP ↑</a></div>
-        <nav class="footer-nav" aria-label="Footer navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#research">Research</a><a href="#journal">Journal</a><a href="#contact">Contact</a></nav>
+        <nav class="footer-nav" aria-label="Footer navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#research">Research</a><a href="#achievements">Achievements</a><a href="#journal">Journal</a><a href="#contact">Contact</a></nav>
         <div class="footer-bottom"><span>© {{ now()->year }} AHMAD IBNU ZAINI</span><span>ALWAYS LEARNING. ALWAYS BUILDING. ALWAYS GROWING.</span><span>MADE IN INDONESIA</span></div>
     </footer>
 </div>

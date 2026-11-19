@@ -116,17 +116,20 @@ html[data-theme='light'] .icon-moon { display: block; }
 .art-grain { position: absolute; z-index: 2; inset: 0; opacity: .13; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E"); pointer-events: none; }
 .art-index { position: absolute; top: 25px; right: 24px; color: rgba(233, 238, 255, .45); font-size: 8px; writing-mode: vertical-rl; }
 .art-index, .art-caption { z-index: 3; }
-.art-caption { position: absolute; right: 20px; bottom: 20px; left: 20px; display: flex; flex-direction: column; gap: 7px; padding: 16px 18px; border: 1px solid rgba(228, 233, 255, .19); background: rgba(12, 14, 21, .71); backdrop-filter: blur(10px); }
+.art-caption { position: absolute; right: 20px; bottom: 20px; left: 20px; display: flex; flex-direction: column; gap: 7px; padding: 16px 18px; background: rgba(12, 14, 21, .71); backdrop-filter: blur(10px); }
 .caption-label { color: #9da5ba; font-size: 8px; }
 .art-caption strong { font-family: var(--font-display); font-size: 16px; font-weight: 500; }
 .typing-cursor { margin-left: 2px; color: var(--blue-bright); animation: blink 1s steps(2) infinite; }
 .caption-location { display: flex; align-items: center; gap: 7px; color: #9da5ba; font-size: 10px; }
 .caption-location i { width: 5px; height: 5px; border-radius: 50%; background: #8bc6a0; }
+html[data-theme='light'] .art-coordinate { color: #3c4964; }
+html[data-theme='light'] .art-index { color: #566078; }
+html[data-theme='light'] .hero-art { border: 1px solid rgba(23, 24, 27, .24); box-shadow: 0 0 0 1px rgba(255, 255, 255, .8), 0 14px 34px rgba(23, 24, 27, .1); }
 .hero-bottom { position: absolute; right: 0; bottom: 26px; left: 0; display: flex; align-items: center; gap: 13px; color: var(--subtle); font-size: 8px; }
 .scroll-line { width: 51px; height: 1px; background: var(--line-strong); }
 .hero-bottom > span:last-child { margin-left: auto; }
 
-.intro-section, .skills-section, .projects-section, .research-section, .journey-section, .journal-section, .contact-section { padding-top: 112px; }
+.intro-section, .skills-section, .projects-section, .research-section, .journey-section, .achievements-section, .journal-section, .contact-section { padding-top: 112px; }
 .section-label { display: flex; align-items: center; gap: 13px; color: var(--muted); font-size: 9px; }
 .section-label > span:first-child { color: var(--blue-bright); }
 .intro-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 60px; padding: 40px 0 67px; }
@@ -274,6 +277,20 @@ h2 { font-family: var(--font-display); font-weight: 500; letter-spacing: -.075em
 .journey-item h3 { margin: 0 0 7px; font-size: 13px; font-weight: 500; }
 .journey-item p { max-width: 420px; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.75; }
 
+.achievement-empty { display: grid; min-height: 220px; grid-template-columns: .8fr 1.2fr; border: 1px solid var(--line); background: var(--surface); }
+.achievement-empty-art { position: relative; display: grid; min-height: 220px; place-items: center; overflow: hidden; border-right: 1px solid var(--line); background: radial-gradient(ellipse at 50% 48%, color-mix(in srgb, var(--blue) 18%, var(--surface)), var(--surface) 72%); }
+.achievement-empty-art::before, .achievement-empty-art::after { position: absolute; width: 185px; height: 185px; border: 1px solid color-mix(in srgb, var(--blue-bright) 17%, transparent); border-radius: 50%; content: ''; }
+.achievement-empty-art::after { width: 145px; height: 145px; }
+.achievement-document { position: relative; z-index: 1; display: flex; width: 92px; height: 116px; flex-direction: column; gap: 9px; padding: 18px 13px; border: 1px solid color-mix(in srgb, var(--blue-bright) 45%, var(--line)); background: color-mix(in srgb, var(--surface-raised) 88%, transparent); box-shadow: 0 15px 35px rgba(0, 0, 0, .2); transform: rotate(-6deg); }
+.achievement-document span { width: 100%; height: 2px; background: var(--line-strong); }
+.achievement-document span:first-child { width: 58%; background: var(--blue-bright); }
+.achievement-document i { display: grid; width: 28px; height: 28px; align-self: flex-end; place-items: center; border: 1px solid color-mix(in srgb, var(--blue-bright) 55%, transparent); border-radius: 50%; color: var(--blue-bright); font-size: 14px; font-style: normal; }
+.achievement-art-label { position: absolute; bottom: 17px; color: var(--subtle); font-family: var(--font-mono); font-size: 7px; letter-spacing: .1em; }
+.achievement-empty-copy { align-self: center; padding: 32px clamp(24px, 5vw, 58px); }
+.achievement-empty-copy .detail-label { color: var(--blue-bright); font-size: 8px; }
+.achievement-empty-copy h3 { margin: 15px 0 8px; font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 28px); font-weight: 500; letter-spacing: -.045em; }
+.achievement-empty-copy p { max-width: 390px; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.8; }
+
 .journal-empty { display: grid; min-height: 192px; grid-template-columns: 130px 1fr 44px; align-items: center; gap: 25px; padding: 28px 30px; border: 1px solid var(--line); background: var(--surface); }
 .journal-empty-mark { color: color-mix(in srgb, var(--blue) 75%, var(--muted)); font-family: var(--font-display); font-size: 43px; font-weight: 500; letter-spacing: -.08em; }
 .journal-empty-mark span { color: var(--blue-bright); font-size: 20px; vertical-align: top; }
@@ -362,7 +379,7 @@ h2 { font-family: var(--font-display); font-weight: 500; letter-spacing: -.075em
     .hero-footnote { margin-top: 33px; font-size: 7px; }
     .hero-art { width: min(100%, 400px); height: min(88vw, 370px); min-height: 280px; align-self: center; }
     .hero-bottom { bottom: 17px; font-size: 7px; }
-    .intro-section, .skills-section, .projects-section, .research-section, .journey-section, .journal-section, .contact-section { padding-top: 82px; }
+    .intro-section, .skills-section, .projects-section, .research-section, .journey-section, .achievements-section, .journal-section, .contact-section { padding-top: 82px; }
     .intro-grid { grid-template-columns: 1fr; gap: 24px; padding: 29px 0 37px; }
     .intro-grid h2, .section-heading h2, .journey-title h2 { font-size: clamp(44px, 12vw, 61px); }
     .intro-copy .large-copy { font-size: 19px; }
@@ -399,6 +416,13 @@ h2 { font-family: var(--font-display); font-weight: 500; letter-spacing: -.075em
     .journey-list::before { left: 37px; }
     .journey-item { grid-template-columns: 24px 1fr; gap: 24px; min-height: 99px; }
     .journey-node { left: 33px; }
+    .achievement-empty { grid-template-columns: 1fr; }
+    .achievement-empty-art { min-height: 160px; border-right: 0; border-bottom: 1px solid var(--line); }
+    .achievement-empty-art::before { width: 150px; height: 150px; }
+    .achievement-empty-art::after { width: 118px; height: 118px; }
+    .achievement-document { width: 72px; height: 92px; gap: 7px; padding: 13px 10px; }
+    .achievement-document i { width: 23px; height: 23px; }
+    .achievement-empty-copy { padding: 23px 20px 25px; }
     .journal-empty { grid-template-columns: 1fr 38px; gap: 10px; padding: 20px; }
     .journal-empty-mark { grid-column: 1 / -1; font-size: 31px; }
     .journal-empty .round-link { grid-column: 2; grid-row: 2; }

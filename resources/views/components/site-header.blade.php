@@ -9,6 +9,7 @@
         <a href="{{ route('home') }}#about">About</a>
         <a href="{{ route('home') }}#projects">Projects</a>
         <a href="{{ route('home') }}#research">Research</a>
+        <a href="{{ route('home') }}#achievements">Achievements</a>
         <a href="{{ route('home') }}#journal">Journal</a>
         <a href="{{ route('home') }}#contact">Contact</a>
         <button class="theme-toggle" type="button" aria-label="Switch to light theme">
