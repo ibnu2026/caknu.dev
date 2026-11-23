@@ -20,6 +20,7 @@ class PortfolioTest extends TestCase
             ->assertOk()
             ->assertSee('id="boot-screen"', false)
             ->assertSee('id="boot-run"', false)
+            ->assertSee('class="boot-cursor"', false)
             ->assertSee('SIMULATED STARTUP')
             ->assertSee('Building Ideas.')
             ->assertSee('<div id="top" aria-hidden="true"></div>', false)
@@ -28,7 +29,11 @@ class PortfolioTest extends TestCase
             ->assertSee('A Latee Library')
             ->assertSee('Sevent')
             ->assertSee('El-Jawie Community')
-            ->assertSee('Thoughts, notes');
+            ->assertSee('Thoughts, notes')
+            ->assertSee('https://codepen.io/Ahmad-Ibnu-Zaini')
+            ->assertSee('CodePen')
+            ->assertSee('class="journey-scroll-track"', false)
+            ->assertSee('data-journey-step="6"', false);
     }
 
     public function test_project_detail_pages_are_available_for_featured_projects(): void
@@ -53,7 +58,9 @@ class PortfolioTest extends TestCase
 
         $this->get(route('projects.show', 'a-latee-library'))
             ->assertOk()
-            ->assertSee('https://github.com/ibnu2026/A-Latee-Library');
+            ->assertSee('https://github.com/ibnu2026/A-Latee-Library')
+            ->assertSee('https://github.com/ibnu2026/A-Latee-Library/releases/tag/v1.0.1')
+            ->assertSee('Download app');
 
         $this->get(route('projects.show', 'unknown-project'))->assertNotFound();
     }

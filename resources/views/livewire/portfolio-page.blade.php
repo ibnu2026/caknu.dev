@@ -4,6 +4,9 @@
             <svg class="boot-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13L19 12 8 5.5Z"></path></svg>
             <span>RUN</span>
         </button>
+        <span class="boot-cursor" aria-hidden="true">
+            <svg viewBox="0 0 24 28"><path d="M3 2.5v19l5.2-5 3.5 7 3.1-1.6-3.6-6.8 7.4.2L3 2.5Z"></path></svg>
+        </span>
         <div class="boot-terminal-screen" id="boot-terminal" aria-label="Simulated portfolio startup terminal" hidden>
             <div class="boot-terminal-bar">
                 <span><i class="boot-terminal-indicator"></i> ibnu@portfolio:~</span>
@@ -13,7 +16,6 @@
                 <p class="boot-terminal-title">PORTFOLIO <span>BOOT SEQUENCE</span></p>
                 <div class="boot-output" id="boot-output" role="log" aria-live="polite" aria-relevant="additions"></div>
                 <div class="boot-progress" aria-hidden="true"><span id="boot-progress"></span></div>
-                <p class="boot-storage-warning" id="boot-storage-warning" role="status" hidden>Your browser could not save this state, so this screen may appear again next visit.</p>
                 <p class="boot-terminal-footer">SIMULATED STARTUP / PHP · LARAVEL · REACT</p>
             </div>
         </div>
@@ -25,24 +27,17 @@
         <section class="hero section-shell" id="home">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <p class="eyebrow"><span class="status-dot"></span> Curious by nature. Building as I learn.</p>
                     <h1>Building Ideas.<br><span>Creating</span><br>Possibilities<span class="blue-dot">.</span></h1>
                     <p class="hero-description">Hi, I’m Ibnu — an Information Technology student and aspiring developer exploring the intersection of technology, creativity, and innovation.</p>
                     <div class="hero-actions">
                         <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↘</span></a>
                         <a class="button button-quiet" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
                     </div>
-                    <div class="hero-footnote">
-                        <span>AHMAD IBNU ZAINI</span>
-                        <span class="footnote-divider"></span>
-                        <span>INDONESIA · {{ now()->format('Y') }}</span>
-                    </div>
                 </div>
 
                 <div class="hero-art">
                     <img class="hero-portrait" src="{{ asset('images/saya-portrait-cutout.png') }}" alt="Foto Ahmad Ibnu Zaini">
                     <div class="art-coordinate">INDONESIA<br>ALWAYS EXPLORING</div>
-                    <div class="art-index">FIG. 01 — A WORK IN PROGRESS</div>
                     <div class="art-grain"></div>
                     <div class="art-caption">
                         <span class="caption-label">CURRENTLY EXPLORING</span>
@@ -51,15 +46,9 @@
                     </div>
                 </div>
             </div>
-            <div class="hero-bottom">
-                <span>SCROLL TO EXPLORE</span>
-                <span class="scroll-line"></span>
-                <span>01 / 07</span>
-            </div>
         </section>
 
         <section class="intro-section section-shell" id="about">
-            <div class="section-label"><span>01</span> A LITTLE ABOUT ME</div>
             <div class="intro-grid">
                 <h2>A little<br>about <em>me.</em></h2>
                 <div class="intro-copy">
@@ -86,18 +75,12 @@
                         <span>Software Development</span><span>Artificial Intelligence</span><span>IoT</span><span>UI/UX Design</span><span>Research</span>
                     </div>
                 </div>
-                <div class="about-mark" aria-hidden="true">A<span>.</span></div>
-            </div>
-            <div class="values-strip" aria-label="Personal values">
-                <span>WHAT KEEPS ME MOVING</span>
-                <strong>Curiosity</strong><i></i><strong>Creativity</strong><i></i><strong>Progress</strong>
             </div>
         </section>
 
         <section class="skills-section section-shell">
             <div class="section-heading">
                 <div>
-                    <div class="section-label"><span>02</span> TOOLS I’M LEARNING WITH</div>
                     <h2>A growing<br>toolkit<span class="blue-dot">.</span></h2>
                 </div>
                 <p>Not a checklist of expertise — just the tools and ideas I’m spending time with, one project at a time.</p>
@@ -119,7 +102,6 @@
         <section class="projects-section section-shell" id="projects">
             <div class="section-heading projects-heading">
                 <div>
-                    <div class="section-label"><span>03</span> SELECTED WORK</div>
                     <h2>Things I’ve<br>built<span class="blue-dot">.</span></h2>
                 </div>
                 <p>Small steps, real questions, and a lot of learning along the way.</p>
@@ -127,44 +109,6 @@
             <div class="projects-grid">
                 @foreach ($projects as $project)
                     <article class="project-card {{ $project['class'] }}">
-                        <div class="project-visual">
-                            <span class="visual-index">PROJECT / {{ $project['number'] }}</span>
-                            @if ($project['class'] === 'project-saka')
-                                <div class="saka-visual" aria-hidden="true">
-                                    <div class="saka-sun"></div><div class="saka-field field-one"></div><div class="saka-field field-two"></div><div class="saka-field field-three"></div>
-                                    <div class="saka-device"><span class="device-led"></span><span class="device-wave">〰</span><small>SAKA / 01</small></div>
-                                    <div class="saka-label">SMART<br>AGRICULTURE</div>
-                                </div>
-                            @elseif ($project['class'] === 'project-library')
-                                <div class="library-visual" aria-hidden="true">
-                                    <div class="library-window"><div class="window-top"><i></i><i></i><i></i><span>latee / library</span></div><div class="window-body"><div class="window-sidebar"><b></b><i></i><i></i><i></i></div><div class="window-content"><span class="window-overline">OVERVIEW</span><b>Good morning.</b><div class="window-stats"><i></i><i></i><i></i></div><div class="window-table"><i></i><i></i><i></i><i></i></div></div></div></div>
-                                    <div class="library-stamp">A<br><span>LATĒE</span></div>
-                                </div>
-                            @elseif ($project['class'] === 'project-sevent')
-                                <div class="sevent-visual" aria-hidden="true">
-                                    <div class="sevent-screen">
-                                        <div class="sevent-topline"><span>SEVENT</span><i>GAME HUB</i></div>
-                                        <div class="sevent-headline">PICK YOUR<br><b>NEXT GAME</b></div>
-                                        <div class="sevent-game-grid"><i>♟<small>CHESS</small></i><i>▦<small>SUDOKU</small></i><i>✦<small>SHADOW SIGNAL</small></i></div>
-                                    </div>
-                                    <div class="sevent-orbit sevent-orbit-one"></div><div class="sevent-orbit sevent-orbit-two"></div>
-                                </div>
-                            @else
-                                <div class="eljawie-visual" aria-hidden="true">
-                                    <div class="community-board">
-                                        <div class="community-topline"><span class="community-mark">EJ</span><span>EL-JAWIE <i>COMMUNITY</i></span><b>MEMBER SPACE / 01</b></div>
-                                        <div class="community-headline">RUANG BERTUMBUH<br><em>BERSAMA.</em></div>
-                                        <div class="community-stories">
-                                            <div><small>01 / KARYA</small><b>Member stories</b><i></i></div>
-                                            <div><small>02 / KEGIATAN</small><b>Community life</b><i></i></div>
-                                            <div><small>03 / WAWASAN</small><b>Shared ideas</b><i></i></div>
-                                        </div>
-                                    </div>
-                                    <span class="community-orbit community-orbit-one"></span><span class="community-orbit community-orbit-two"></span>
-                                </div>
-                            @endif
-                            <span class="project-counter">{{ $project['number'] }} <b>—</b> {{ str_pad((string) count($projects), 2, '0', STR_PAD_LEFT) }}</span>
-                        </div>
                         <div class="project-info">
                             <div>
                                 <span class="project-category">{{ $project['category'] }}</span>
@@ -181,7 +125,7 @@
                                         <span class="coming-soon">Private repository</span>
                                     @endif
                                     @if ($project['demo_url'])
-                                        <a href="{{ $project['demo_url'] }}" target="_blank" rel="noopener noreferrer">Live demo</a>
+                                        <a href="{{ $project['demo_url'] }}" target="_blank" rel="noopener noreferrer">{{ $project['demo_label'] ?? 'Live demo' }}</a>
                                     @endif
                                     @if (! $project['github_url'] && ! ($project['github_private'] ?? false) && ! $project['demo_url'])
                                         <span class="coming-soon">Repository & demo links not added</span>
@@ -198,13 +142,11 @@
         <section class="research-section section-shell" id="research">
             <div class="section-heading">
                 <div>
-                    <div class="section-label"><span>04</span> RESEARCH & EXPLORATION</div>
                     <h2>Researching<br>what’s possible<span class="blue-dot">.</span></h2>
                 </div>
                 <p>Following questions that connect language, intelligent systems, and the world beyond the screen.</p>
             </div>
             <article class="research-feature">
-                <div class="research-index"><span>RESEARCH FOCUS</span><b>R / 01</b><div class="research-orbit"><i></i><i></i><i></i></div></div>
                 <div class="research-content">
                     <div class="research-status"><span class="status-dot"></span> EXPLORATION PHASE</div>
                     <h3>SAKA <span>— Offline Speech AI<br>for Smart Irrigation</span></h3>
@@ -221,42 +163,34 @@
                     <div class="research-foot"><span>DOCUMENTATION & PUBLICATIONS</span><span>Not published yet <i aria-hidden="true">↗</i></span></div>
                 </div>
             </article>
-            <div class="research-bottom"><span>01 — AN ONGOING LEARNING THREAD</span><span>Progress: exploration & experimentation</span></div>
         </section>
 
-        <section class="journey-section section-shell" id="journey">
-            <div class="journey-title">
-                <div class="section-label"><span>05</span> EXPERIENCE & JOURNEY</div>
-                <h2>My journey<br>so far<span class="blue-dot">.</span></h2>
-                <p>No shortcuts, no finished story. Just the next thing to learn.</p>
-            </div>
-            <div class="journey-list">
-                @foreach ($journey as $item)
-                    <article class="journey-item">
-                        <span class="journey-date">{{ $item['date'] }}</span>
-                        <span class="journey-node"></span>
-                        <div><h3>{{ $item['title'] }}</h3><p>{{ $item['text'] }}</p></div>
-                    </article>
-                @endforeach
-            </div>
-        </section>
+        <div class="journey-scroll-track">
+            <section class="journey-section section-shell" id="journey" data-journey-step="0">
+                <div class="journey-title">
+                    <h2>My journey<br>so far<span class="blue-dot">.</span></h2>
+                    <p>No shortcuts, no finished story. Just the next thing to learn.</p>
+                </div>
+                <div class="journey-list" aria-live="polite" aria-label="Journey steps">
+                    @foreach ($journey as $item)
+                        <article class="journey-item" data-journey-step="{{ $loop->iteration }}">
+                            <span class="journey-date">{{ $item['date'] }}</span>
+                            <span class="journey-node" aria-hidden="true"></span>
+                            <div><h3>{{ $item['title'] }}</h3><p>{{ $item['text'] }}</p></div>
+                        </article>
+                    @endforeach
+                </div>
+            </section>
+        </div>
 
         <section class="achievements-section section-shell" id="achievements">
             <div class="section-heading">
                 <div>
-                    <div class="section-label"><span>06</span> ACHIEVEMENTS & CERTIFICATES</div>
                     <h2>Milestones<br>& recognition<span class="blue-dot">.</span></h2>
                 </div>
                 <p>A growing collection of certificates and milestones from my learning journey.</p>
             </div>
             <div class="achievement-empty">
-                <div class="achievement-empty-art" aria-hidden="true">
-                    <div class="achievement-document">
-                        <span></span><span></span><span></span>
-                        <i>✳</i>
-                    </div>
-                    <span class="achievement-art-label">RECOGNITION / ARCHIVE</span>
-                </div>
                 <div class="achievement-empty-copy">
                     <div class="detail-label">COLLECTION IN PROGRESS</div>
                     <h3>More milestones are on the way.</h3>
@@ -268,7 +202,6 @@
         <section class="journal-section section-shell" id="journal">
             <div class="section-heading">
                 <div>
-                    <div class="section-label"><span>07</span> JOURNAL / NOTES</div>
                     <h2>Thoughts, notes<br>& discoveries<span class="blue-dot">.</span></h2>
                 </div>
                 <p>A space for what I’m learning — from code and research to books, films, and the little things in between.</p>
@@ -276,11 +209,6 @@
             <div class="journal-grid">
                 @foreach ($journalEntries as $entry)
                     <article class="journal-card">
-                        <a class="journal-cover {{ $entry['cover'] }}" href="{{ route('journal.show', $entry['slug']) }}" aria-label="Read {{ $entry['title'] }}">
-                            <span class="visual-index">FIELD NOTE / {{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
-                            <span class="journal-cover-mark">{{ $loop->iteration === 1 ? 'LEARN' : 'PROCESS' }}</span>
-                            <span class="journal-cover-index">IBNU. / NOTES</span>
-                        </a>
                         <div class="journal-card-content">
                             <div class="journal-card-meta"><span>{{ $entry['category'] }}</span><span>{{ $entry['published_at'] ?? 'UNDATED NOTE' }}</span></div>
                             <h3><a href="{{ route('journal.show', $entry['slug']) }}">{{ $entry['title'] }}</a></h3>
@@ -307,7 +235,7 @@
                 <div class="contact-socials">
                     <span>FIND ME ELSEWHERE</span>
                     <div>
-                        @foreach (['GitHub' => 'github_url', 'LinkedIn' => 'linkedin_url', 'Instagram' => 'instagram_url'] as $label => $key)
+                        @foreach (['GitHub' => 'github_url', 'CodePen' => 'codepen_url', 'LinkedIn' => 'linkedin_url', 'Instagram' => 'instagram_url'] as $label => $key)
                             @if ($contactDetails[$key])
                                 <a href="{{ $contactDetails[$key] }}" target="_blank" rel="noopener noreferrer">{{ $label }} <small>OPEN PROFILE ↗</small></a>
                             @else
@@ -325,7 +253,6 @@
                 </div>
             </div>
             <div class="contact-form-wrap">
-                <div class="form-heading"><span>01 — SEND A MESSAGE</span><span class="form-asterisk">*</span></div>
                 @if (session()->has('contact-sent'))
                     <div class="form-success" role="status">{{ session('contact-sent') }}</div>
                 @endif

@@ -36,7 +36,8 @@ return [
             'class' => 'project-library',
             'number' => '02',
             'github_url' => 'https://github.com/ibnu2026/A-Latee-Library',
-            'demo_url' => null,
+            'demo_url' => 'https://github.com/ibnu2026/A-Latee-Library/releases/tag/v1.0.1',
+            'demo_label' => 'Download app',
         ],
         [
             'slug' => 'sevent',
@@ -146,6 +147,7 @@ return [
     'contact' => [
         'email' => 'ahmadibnuzaini2026@gmail.com',
         'github_url' => 'https://github.com/ibnu2026',
+        'codepen_url' => 'https://codepen.io/Ahmad-Ibnu-Zaini',
         'linkedin_url' => 'https://www.linkedin.com/in/ahmad-ibnu-zaini-a211243b5/',
         'instagram_url' => 'https://www.instagram.com/i_b_n_u_2_6/',
     ],

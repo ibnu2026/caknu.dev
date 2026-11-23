@@ -61,7 +61,7 @@
                             <span>GitHub repository <small>NOT ADDED</small></span>
                         @endif
                         @if ($project['demo_url'])
-                            <a href="{{ $project['demo_url'] }}" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+                            <a href="{{ $project['demo_url'] }}" target="_blank" rel="noopener noreferrer">{{ $project['demo_label'] ?? 'Live demo' }} ↗</a>
                         @else
                             <span>Live demo <small>NOT AVAILABLE</small></span>
                         @endif
